@@ -1,0 +1,120 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.description {
+    width: 70%;
+    margin: 20px auto;
+    font-size: 18px;
+}
+
+#root {
+    display: flex;
+    flex-wrap: wrap;
+    width: 91%;
+    margin: 0 auto;
+}
+
+span {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+    position: relative;
+    font-weight: 800;
+    color: grey;
+    margin: 5px;
+}
+
+span:hover {
+    background-color: rgb(209, 205, 205);
+    cursor: pointer;
+}
+
+span.detected, span.guess, span.target, span.gameOver {
+    pointer-events: none;
+    user-select: none;
+}
+
+span.detected::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-color: black;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+span.target::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+span.guess::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-color: green;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+#text {
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 30px;
+}
+
+#button {
+    display: none;
+}
+
+#button.show {
+    margin: 0 auto;
+    width: fit-content;
+    display: block;
+    height: 40px;
+    background-color: green;
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .description {
+        width: 91%;
+        margin: 10px auto;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .description {
+        width: 91%;
+        margin: 10px auto;
+        font-size: 14px;
+    }
+
+    #text {
+        font-size: 25px;
+    }
+}
