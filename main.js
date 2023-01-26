@@ -1,5 +1,7 @@
 const newGame = () => {
     const root = document.getElementById("root");
+    const text = document.getElementById("text");
+    const counter = document.getElementById("counter");
     const max = 300;
     const guess = Math.floor(Math.random() * max);
     const button = document.getElementById("button");
@@ -7,6 +9,7 @@ const newGame = () => {
 
     root.innerText = "";
     text.innerText = "";
+    counter.innerText = "";
     for (let i = 1; i <= max; i++) {
         const item = document.createElement("span");
         item.classList.add("item")
@@ -15,9 +18,10 @@ const newGame = () => {
 
         item.addEventListener("click", function () {
             count++; 
-
+            counter.innerText = `Դուք կատարել եք ${count} քայլ`;
             if (count >= 9) {
                 button.classList.add("show");
+                counter.classList.add("danger");
             }
 
             if (+item.innerText === guess) {
@@ -29,7 +33,8 @@ const newGame = () => {
 
                 button.classList.add("show");
                 item.classList.add("guess");
-                text.innerText = "Ուռաաաա, դուք գուշակեցիք թիվը";
+                text.innerText = count <= 9 ? `Ուռաաաա, դուք գուշակեցիք թիվը ${count} քայլից` :
+                    `Դուք գուշակեցիք թիվը ${count} քայլից`;
             } else if (item.innerText > guess) {
                 const items = document.getElementsByClassName("item");
 
@@ -52,6 +57,8 @@ const newGame = () => {
 
     button.addEventListener("click", function() {
         button.classList.remove("show");
+        counter.classList.remove("danger");
+        count = 0;
         newGame();
     })
 }

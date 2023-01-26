@@ -3,7 +3,7 @@ body {
 }
 
 .description {
-    width: 70%;
+    width: 90%;
     margin: 20px auto;
     font-size: 18px;
 }
@@ -97,6 +97,14 @@ span.guess::before {
     border-radius: 5px;
     border: none;
     margin-top: 20px;
+}
+
+#counter {
+    text-align: center;
+    margin-top: 20px;
+}
+#counter.danger {
+    color: red;
 }
 
 @media screen and (max-width: 768px) {
